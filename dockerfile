@@ -1,14 +1,12 @@
-# Use lightweight Java 21 image
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set working directory inside container
+# ---------- Build stage ----------
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
+COPY . .
+RUN ./mvnw clean package -DskipTests
 
-# Copy the Spring Boot JAR into container
-COPY target/*.jar app.jar
-
-# Expose Spring Boot port
+# ---------- Run stage ----------
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
