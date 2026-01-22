@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Student</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eceff1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            background: #ff9800;
+            border: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{/updateStudent}" th:object="${student}" method="post">
+    <h3>Update Student</h3>
+
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{name}">
+    <input type="number" th:field="*{age}">
+    <input type="text" th:field="*{course}">
+    <input type="text" th:field="*{address}">
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

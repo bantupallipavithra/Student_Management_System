@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: white;
+            padding: 35px;
+            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #6f42c1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #59339d;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Search Student</h2>
+
+    <form action="/searchResult" method="get">
+        <input type="number" name="id" placeholder="Enter Student ID" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <a href="/">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

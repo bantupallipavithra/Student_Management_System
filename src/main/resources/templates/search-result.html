@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f7ff;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .result-box {
+            background: white;
+            padding: 30px;
+            width: 380px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+        .not-found {
+            color: red;
+            font-weight: bold;
+        }
+        .actions a {
+            display: inline-block;
+            margin: 15px 10px 0;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+        }
+        .search-again {
+            background: #6f42c1;
+        }
+        .home {
+            background: #007bff;
+        }
+        .actions a:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="result-box">
+    <h2>Student Details</h2>
+
+    <div th:if="${student != null}">
+        <p><b>ID:</b> <span th:text="${student.id}"></span></p>
+        <p><b>Name:</b> <span th:text="${student.name}"></span></p>
+        <p><b>Email:</b> <span th:text="${student.email}"></span></p>
+        <p><b>Course:</b> <span th:text="${student.course}"></span></p>
+    </div>
+
+    <div th:if="${student == null}">
+        <p class="not-found">No student found with this ID</p>
+    </div>
+
+    <div class="actions">
+        <a href="/searchStudent" class="search-again">🔍 Search Again</a>
+        <a href="/" class="home">🏠 Home</a>
+    </div>
+</div>
+
+</body>
+</html>

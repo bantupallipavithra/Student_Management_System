@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Students</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th {
+            background: #673ab7;
+            color: white;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        a {
+            text-decoration: none;
+            color: #2196F3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<h1 style="color:red">VIEW STUDENTS PAGE LOADED</h1>
+
+<body>
+
+<h2>All Students</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Course</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="s : ${students}">
+        <td th:text="${s.id}">1</td>
+        <td th:text="${s.name}">Name</td>
+        <td th:text="${s.age}">20</td>
+        <td th:text="${s.course}">CSE</td>
+        <td>
+            <a th:href="@{/student/{id}(id=${s.id})}">Edit</a> |
+            <a th:href="@{/deleteStudent/{id}(id=${s.id})}"
+               onclick="return confirm('Delete this student?')">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/}">Back</a>
+
+</body>
+</html>
