@@ -42,6 +42,8 @@
         <th>Name</th>
         <th>Age</th>
         <th>Course</th>
+		<th>Mother Name</th>
+		<th>Father Name</th>
         <th>Action</th>
     </tr>
 
@@ -50,6 +52,8 @@
         <td th:text="${s.name}">Name</td>
         <td th:text="${s.age}">20</td>
         <td th:text="${s.course}">CSE</td>
+		<td th:text="${s.mname}">Mother</td>
+		<td th:text="${s.fname}">Father</td>
         <td>
             <a th:href="@{/student/{id}(id=${s.id})}">Edit</a> |
             <a th:href="@{/deleteStudent/{id}(id=${s.id})}"
